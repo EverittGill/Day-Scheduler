@@ -3,9 +3,9 @@
 // in the html.
 $(function () {
   // TODO: Add a listener for click events on the save button.
-$(".btn").click(function(){
-  console.log(this)
-})
+// $(".btn").click(function(){
+//   console.log(this)
+// })
 
 
   //  This code should use the id in the containing time-block as a key to save the user input in local storage.
@@ -19,7 +19,7 @@ $(".btn").click(function(){
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
-  current hour in 24-hour time?
+  // current hour in 24-hour time?
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -29,4 +29,54 @@ $(".btn").click(function(){
 });
 
 
+const currentDateTime = dayjs(); // create a DayJS object for the current date and time
+const formattedDateTime = currentDateTime.format('YYYY-MM-DD HH:mm:ss'); // format the date and time
 
+console.log(`The current date and time is ${formattedDateTime}`); // output the current date and time to the 
+
+
+
+let arr = $(".row")
+
+var date = new Date()
+var currentHour = date.getHours() + 1;
+console.log(currentHour, "test line 41")
+console.log(date, "line 42")
+
+$("#currentDay").text(formattedDateTime)
+
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i])
+  if (arr[i].id.split('-')[1] === currentHour.toString()) {
+    $("#" + arr[i].id).addClass("present")
+  } else if (parseInt(arr[i].id.split('-')[1]) > currentHour) {
+    $("#" + arr[i].id).addClass("future")
+  } else if (parseInt(arr[i].id.split('-')[1]) < currentHour) {
+    $("#" + arr[i].id).addClass("past")
+  }
+}
+
+for (let i = 0; i < arr.length; i++) {
+  arr[i].addEventListener("click", (event) => {
+    bubble(event.target)
+  })
+}
+
+
+function bubble(element){
+  if(!element.id.includes('hour')){
+    bubble(element.parentNode)
+  }else{
+    console.log(element)
+  }
+}
+
+
+if (localStorage.getItem("timeSlots")) {
+  let storage = JSON.parse(localStorage.getItem("timeSlots"))
+
+  if (storage[0].id === element.id.split('-')[1]) {
+    for ()
+  } if else {}
+}
