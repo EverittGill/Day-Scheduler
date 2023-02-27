@@ -15,8 +15,7 @@ This website can be used to schedule your workday between the hours between 9am-
 
 Just follow this link to use the day scheduler
 
-https://raw.githubusercontent.com/EverittGill/Day-Scheduler/main/DaySchedulerScreenshot.png
-
+https://everittgill.github.io/Day-Scheduler/
 
 ## Usage
 
